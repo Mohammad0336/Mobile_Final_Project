@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Mobile_Final_Proj</string>
+    <string name="sign_in">Sign in</string>
+    <string name="nba_cd">nba</string>
+    <string name="ufc_cd">ufc</string>
+    <string name="soc_cd">soccer</string>
+    <string name="search_cd">search</string>
+    <string name="home_cd">home</string>
+    <string name="profile_cd">profile</string>
+    <string name="about_cd">about</string>
+    <string name="watch_cd">play</string>
+    <string name="textview">TextView</string>
+    <string name="searchbar">PlayerName</string>
+</resources>
