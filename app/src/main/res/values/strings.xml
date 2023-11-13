@@ -11,4 +11,10 @@
     <string name="watch_cd">play</string>
     <string name="textview">TextView</string>
     <string name="searchbar">PlayerName</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

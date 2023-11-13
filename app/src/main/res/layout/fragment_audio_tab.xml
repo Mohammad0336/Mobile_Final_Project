@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Media Player Controls -->
+    <ImageView
+        android:id="@+id/albumArtImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/audio"
+        android:contentDescription="Album Art"
+        android:scaleType="fitCenter"
+        android:padding="16dp"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:id="@+id/songTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Audio Title"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/artistTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Audio Owner Name"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progressTint="@android:color/white"
+        android:padding="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/previousButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/slow"
+            android:contentDescription="Previous"
+            android:padding="16dp"/>
+
+        <ImageView
+            android:id="@+id/playPauseButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/play"
+            android:contentDescription="Play/Pause"
+            android:padding="16dp"/>
+
+        <ImageView
+            android:id="@+id/nextButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/fast"
+            android:contentDescription="Next"
+            android:padding="16dp"/>
+
+    </LinearLayout>
+</LinearLayout>

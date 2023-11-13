@@ -37,6 +37,7 @@
             android:layout_height="48dp"
             android:layout_margin="10dp"
             android:background="@drawable/rectangular_button"
+            android:onClick="signUp"
             android:text="@string/sign_in" />
 
     </LinearLayout>
@@ -88,87 +89,66 @@
 
     </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#1E1C1C"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <!-- Home Button -->
-        <ImageButton
-            android:id="@+id/homeButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/custom_background_color"
-            android:contentDescription="@string/home_cd"
-            android:scaleType="fitCenter"
-            android:src="@drawable/home" />
-
-        <!-- Search Button -->
-        <ImageButton
-            android:id="@+id/searchButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/custom_background_color"
-            android:contentDescription="@string/search_cd"
-            android:scaleType="fitCenter"
-            android:onClick="testSearch"
-            app:srcCompat="@android:drawable/ic_menu_search" />
-
-        <!-- Play Button -->
-        <ImageButton
-            android:id="@+id/playButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/custom_background_color"
-            android:contentDescription="@string/watch_cd"
-            app:srcCompat="@android:drawable/ic_media_play" />
-
-        <!-- About Button -->
-        <ImageButton
-            android:id="@+id/aboutButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/custom_background_color"
-            android:contentDescription="@string/about_cd"
-            app:srcCompat="@android:drawable/ic_menu_help" />
-
-        <!-- Profile Button -->
-        <ImageButton
-            android:id="@+id/profileButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@color/custom_background_color"
-            android:contentDescription="@string/profile_cd"
-            android:scaleType="fitCenter"
-            android:src="@drawable/profile" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textview"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        android:layout_height="557dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#1E1C1C"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/homeTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/home_cd"
+            android:icon="@drawable/home" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/searchTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/search_cd"
+            android:icon="@android:drawable/ic_menu_search" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/playTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/watch_cd"
+            android:icon="@android:drawable/ic_media_play" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/audioTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/about_cd"
+            android:icon="@android:drawable/ic_lock_silent_mode_off" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/profileTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/profile_cd"
+            android:icon="@drawable/profile" />
+    </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

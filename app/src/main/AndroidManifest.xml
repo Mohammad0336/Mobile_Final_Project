@@ -24,8 +24,9 @@
             </intent-filter>
         </activity>
 
+
         <activity
-            android:name=".SearchActivity"
+            android:name=".RegisterActivity"
             android:exported="true">
         </activity>
 
