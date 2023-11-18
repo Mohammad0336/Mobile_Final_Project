@@ -65,7 +65,7 @@ public class HomeTabFragment extends Fragment {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
                         .url("https://free-nba.p.rapidapi.com/games?page=0&per_page=25")
-                        .header("X-RapidAPI-Key", "55267d0dfemsh288146d4ea89887p102994jsnedf26b1f5ac3")
+                        .header("X-RapidAPI-Key", "pasteapikeyhere")
                         .header("X-RapidAPI-Host", "free-nba.p.rapidapi.com")
                         .build();
 
