@@ -30,16 +30,6 @@
             app:title="SmartPlay | Sports"
             app:titleTextColor="@color/white" />
 
-        <!-- Login Button -->
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rectangular_button"
-            android:onClick="signUp"
-            android:text="@string/sign_in" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -73,8 +63,9 @@
             android:layout_margin="5dp"
             android:background="@drawable/circle_button"
             android:contentDescription="@string/nba_cd"
+            android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/nba" />
+            android:src="@drawable/nbafulll" />
 
         <!-- Soccer Button -->
         <ImageButton

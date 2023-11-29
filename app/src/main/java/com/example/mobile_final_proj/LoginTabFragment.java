@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment;
 
 public class LoginTabFragment extends Fragment {
 
-    private EditText loginEmailEditText;
-    private EditText loginPasswordEditText;
+    private EditText emailEditText;
+    private EditText passwordEditText;
     private Button loginButton;
     private DatabaseHelper databaseHelper;
 
@@ -23,9 +23,9 @@ public class LoginTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_login_tab, container, false);
 
         // Initialize UI elements
-        loginEmailEditText = view.findViewById(R.id.login_email); // Replace with the actual ID from your layout XML
-        loginPasswordEditText = view.findViewById(R.id.login_password); // Replace with the actual ID
-        loginButton = view.findViewById(R.id.login_button); // Replace with the actual ID
+        emailEditText = view.findViewById(R.id.login_email);
+        passwordEditText = view.findViewById(R.id.login_password);
+        loginButton = view.findViewById(R.id.login_button);
 
         // Initialize the DatabaseHelper
         databaseHelper = new DatabaseHelper(getActivity());
@@ -34,34 +34,32 @@ public class LoginTabFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userLogin();
+                loginUser();
             }
         });
 
         return view;
     }
 
-    private void userLogin() {
+    private void loginUser() {
         // Retrieve user input from the EditText fields
-        String email = loginEmailEditText.getText().toString();
-        String password = loginPasswordEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
 
         // Check if any field is empty
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(getActivity(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Both email and password are required", Toast.LENGTH_SHORT).show();
         } else {
             // Check if the user with the provided email and password exists
-            boolean loginSuccessful = databaseHelper.checkEmailPassword(email, password);
+            if (databaseHelper.checkEmailPassword(email, password)) {
+                // User exists, set the current user's email in SessionManager
+                SessionManager.getInstance().setCurrentUserEmail(email);
 
-            if (loginSuccessful) {
-                Toast.makeText(getActivity(), "Login Successful!", Toast.LENGTH_SHORT).show();
-
-                // Redirect to the main activity or dashboard
-                // Replace MainActivity.class with the actual activity you want to navigate to
+                // Redirect to the main activity or wherever needed
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(getActivity(), "Login Failed! Invalid credentials", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Invalid email or password", Toast.LENGTH_SHORT).show();
             }
         }
     }

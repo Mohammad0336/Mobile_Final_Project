@@ -19,13 +19,13 @@
             android:id="@+id/team1TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Team 1" />
+            android:text="@string/team_1" />
 
         <TextView
             android:id="@+id/team2TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Team 2" />
+            android:text="@string/team_2" />
     </LinearLayout>
 
     <!-- Score (centered) -->
@@ -34,7 +34,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="vs"
+        android:text="@string/vs"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_gravity="center_vertical" />

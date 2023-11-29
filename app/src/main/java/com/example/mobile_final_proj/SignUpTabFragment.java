@@ -23,10 +23,10 @@ public class SignUpTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sign_up_tab, container, false);
 
         // Initialize UI elements
-        emailEditText = view.findViewById(R.id.signup_email); // Replace with the actual ID from your layout XML
-        passwordEditText = view.findViewById(R.id.signup_password); // Replace with the actual ID
+        emailEditText = view.findViewById(R.id.signup_email);
+        passwordEditText = view.findViewById(R.id.signup_password);
         confirmPasswordEditText = view.findViewById(R.id.signup_confirm);
-        registerButton = view.findViewById(R.id.signup_button); // Replace with the actual ID
+        registerButton = view.findViewById(R.id.signup_button);
 
         // Initialize the DatabaseHelper
         databaseHelper = new DatabaseHelper(getActivity());
@@ -43,32 +43,24 @@ public class SignUpTabFragment extends Fragment {
     }
 
     private void registerUser() {
-        // Retrieve user input from the EditText fields
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
 
-        // Check if any field is empty
         if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(getActivity(), "All fields are mandatory", Toast.LENGTH_SHORT).show();
         } else {
             if (password.equals(confirmPassword)) {
-                // Check if the user with the same email exists
-                if (!databaseHelper.checkEmail(email)) {
-                    // User doesn't exist, perform registration
-                    boolean registrationSuccessful = databaseHelper.insertData(email, password);
+                User user = new User(email, password);
 
-                    if (registrationSuccessful) {
-                        Toast.makeText(getActivity(), "Signup Successfully!", Toast.LENGTH_SHORT).show();
+                if (databaseHelper.insertUser(user)) {
+                    Toast.makeText(getActivity(), "Signup Successfully!", Toast.LENGTH_SHORT).show();
 
-                        // Redirect to the login activity
-                        Intent intent = new Intent(getActivity(), RegisterActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(getActivity(), "Signup Failed!", Toast.LENGTH_SHORT).show();
-                    }
+                    // Redirect to the login activity
+                    Intent intent = new Intent(getActivity(), RegisterActivity.class);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(getActivity(), "User already exists! Please login", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Signup Failed!", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 Toast.makeText(getActivity(), "Passwords do not match!", Toast.LENGTH_SHORT).show();

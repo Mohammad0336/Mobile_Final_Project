@@ -57,8 +57,5 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    public void returnHome(View v) {
-        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
+
 }

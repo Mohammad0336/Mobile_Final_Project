@@ -3,17 +3,105 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/black">
 
-    <!-- Add your search tab content here -->
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/profile_image_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/layout2"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="103dp"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp" />
+
+    <LinearLayout
+        android:id="@+id/user_data_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Profile Tab Fragment"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_gravity="center"/>
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:background="@color/custom_background_color"
+        android:layout_margin="20dp"
+        android:padding="16dp"
+        android:layout_marginTop="32dp">
 
-    <!-- Add more views as needed -->
+        <TextView
+            android:id="@+id/user_email_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_email"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/password_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/current_password"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <!-- Show/Hide Password Button -->
+
+    <!-- Buttons Layout -->
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/show_hide_password_button"
+        android:layout_marginTop="16dp">
+
+        <!-- Upload Image Button -->
+        <Button
+            android:id="@+id/upload_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/upload_image"
+            android:background="@drawable/rectangular_button"
+            android:textColor="#FFFFFF"
+            android:padding="16dp"
+            android:elevation="4dp" />
+
+        <!-- Capture Image Button -->
+        <Button
+            android:id="@+id/capture_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rectangular_button"
+            android:text="@string/capture_image"
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/show_hide_password_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rectangular_button"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:text="@string/show_hide_password"
+            android:textColor="#FFFFFF"
+            />
+
+
+        <!-- Profile Image -->
+
+    </LinearLayout>
+
 </LinearLayout>

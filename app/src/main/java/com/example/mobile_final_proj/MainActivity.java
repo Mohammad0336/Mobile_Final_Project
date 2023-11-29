@@ -8,6 +8,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
         viewPager2 = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tabLayout);
 
+        viewPager2.setUserInputEnabled(false);
+
         tabAdapter = new TabAdapter(getSupportFragmentManager(), getLifecycle());
         viewPager2.setAdapter(tabAdapter);
+
 
         // Attach TabLayout to ViewPager2
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> {
@@ -48,11 +52,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }).attach();
-    }
 
+    }
     public void signUp(View view) {
         Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
 }
-

@@ -31,16 +31,7 @@
             app:title="SmartPlay | Sports"
             app:titleTextColor="@color/white" />
 
-        <!-- Login Button -->
-        <Button
-            android:id="@+id/home_button"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_margin="10dp"
-            android:onClick="returnHome"
-            android:background="@drawable/rectangular_button"
-            android:text="@string/home_cd"
-            android:visibility="visible"/>
+
 
     </LinearLayout>
 

@@ -17,4 +17,26 @@
     <string name="username">Username</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="maps_api_key">AIzaSyCPLWfsbqhABxGkdthSBs3YbiZYZvJXQUw</string>
+    <string name="enter_address_city_or_zip_code">Enter Address, City or Zip Code</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="center">Center Screen</string>
+    <string name="read_more">Read more</string>
+    <string name="news_title">News Title</string>
+    <string name="news_description">News Description</string>
+    <string name="news">News</string>
+    <string name="matches">Matches</string>
+    <string name="login">Login</string>
+    <string name="change_video">Change Video</string>
+    <string name="user_email">User Email:</string>
+    <string name="current_password">Current Password:</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="capture_image">Capture Image</string>
+    <string name="show_hide_password">Show/Hide Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup">Signup</string>
+    <string name="team_1">Team 1</string>
+    <string name="team_2">Team 2</string>
+    <string name="vs">vs</string>
 </resources>

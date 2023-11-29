@@ -1,90 +1,47 @@
 package com.example.mobile_final_proj;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.SeekBar;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import androidx.fragment.app.Fragment;
-import android.media.MediaPlayer;
 
 public class AudioTabFragment extends Fragment {
-    private MediaPlayer mediaPlayer;
-    private ImageView playPauseButton;
-    private ImageView previousButton;
-    private ImageView nextButton;
-    private SeekBar seekBar;
-    private Handler seekBarHandler;
+
+    private WebView spotifyWebView1;
+    private WebView spotifyWebView2;
+    private WebView spotifyWebView3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_audio_tab, container, false);
 
-        // Initialize media player and UI elements
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.testsong_20_sec);
-        playPauseButton = view.findViewById(R.id.playPauseButton);
-        previousButton = view.findViewById(R.id.previousButton);
-        nextButton = view.findViewById(R.id.nextButton);
-        seekBar = view.findViewById(R.id.seekBar);
+        // Initialize UI elements
+        spotifyWebView1 = view.findViewById(R.id.spotifyWebView1);
+        spotifyWebView2 = view.findViewById(R.id.spotifyWebView2);
+        spotifyWebView3 = view.findViewById(R.id.spotifyWebView3);
 
-        // Initialize SeekBar
-        seekBar.setMax(mediaPlayer.getDuration());
+        // Initialize WebView settings
+        initWebViewSettings(spotifyWebView1);
+        initWebViewSettings(spotifyWebView2);
+        initWebViewSettings(spotifyWebView3);
 
-        playPauseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.pause();
-                    playPauseButton.setImageResource(R.drawable.play);
-                } else {
-                    mediaPlayer.start();
-                    playPauseButton.setImageResource(R.drawable.pause);
-                    updateSeekBar();
-                }
-            }
-        });
-
-        previousButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Implement logic to play the previous track
-            }
-        });
-
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Implement logic to play the next track
-            }
-        });
-
-        // Initialize SeekBar handler
-        seekBarHandler = new Handler(Looper.getMainLooper());
+        // Load Spotify embed codes into WebViews
+        loadSpotifyEmbedCode(spotifyWebView1, "<iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/episode/4edPl7ENIMzemyodvJw2gJ?utm_source=generator&theme=0\" width=\"100%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>");
+        loadSpotifyEmbedCode(spotifyWebView2, "<iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/episode/6n36RpwqpgZI5Z8qFf4Abj?utm_source=generator&theme=0\" width=\"100%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>");
+        loadSpotifyEmbedCode(spotifyWebView3, "<iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/episode/2OnpPtbN5d4JjgtV8iyLxS?utm_source=generator\" width=\"100%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>");
 
         return view;
     }
 
-    private void updateSeekBar() {
-        seekBarHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                    int currentPosition = mediaPlayer.getCurrentPosition();
-                    seekBar.setProgress(currentPosition);
-                }
-                updateSeekBar(); // Schedule the next update
-            }
-        }, 1000); // Update every 1 second
+    private void initWebViewSettings(WebView webView) {
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-        }
+    private void loadSpotifyEmbedCode(WebView webView, String modifiedEmbedCode) {
+        webView.loadData(modifiedEmbedCode, "text/html", "utf-8");
     }
 }

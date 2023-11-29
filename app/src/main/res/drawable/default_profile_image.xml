@@ -1,0 +1,5 @@
+<!-- res/drawable/default_profile_image.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#CCCCCC"/> <!-- Placeholder color, adjust as needed -->
+    <corners android:radius="75dp"/> <!-- Half of the width/height to create a circle -->
+</shape>

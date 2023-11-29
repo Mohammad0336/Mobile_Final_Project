@@ -27,7 +27,7 @@
                 android:id="@+id/signup_email"
                 android:layout_marginTop="30dp"
                 android:padding="20dp"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:drawablePadding="8dp"
                 android:background="@drawable/edittext_bkg"/>
 
@@ -38,7 +38,7 @@
                 android:id="@+id/signup_password"
                 android:layout_marginTop="20dp"
                 android:padding="20dp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:drawablePadding="8dp"
                 android:background="@drawable/edittext_bkg"/>
@@ -50,7 +50,7 @@
                 android:id="@+id/signup_confirm"
                 android:layout_marginTop="20dp"
                 android:padding="20dp"
-                android:hint="Confirm Password"
+                android:hint="@string/confirm_password"
                 android:inputType="textPassword"
                 android:drawablePadding="8dp"
                 android:background="@drawable/edittext_bkg"/>
@@ -62,7 +62,7 @@
                 android:layout_marginTop="30dp"
                 android:id="@+id/signup_button"
                 android:textSize="18sp"
-                android:text="Signup"
+                android:text="@string/signup"
                 android:onClick="registerUser"
                 android:background="@drawable/rectangular_button"
                 app:cornerRadius = "30dp"/>
